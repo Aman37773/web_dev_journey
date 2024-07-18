@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dom</title>
+  <style>
+    .whole {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .btn {
+      padding: 10px;
+      border-radius: 15px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="whole">
+    <button class="btn">click here</button>
+  </div>
+
+
+
+
+  <script>
+    let take = document.getElementsByClassName("btn")
+    take[0].addEventListener("click", hello);
+
+
+    function hello() {
+      document.body.style.backgroundColor = randomcolor()
+    }
+
+    let randomcolor = () => {
+      let val1 = "#"
+      let val2 = "1234567890ABCDEF"
+      for (let i = 0; i < 6; i++) {
+        val1 = val1 + val2[Math.floor(Math.random() * 16)]
+      }
+      return val1;
+    };
+
+  </script>
+
+</body>
+
+</html>

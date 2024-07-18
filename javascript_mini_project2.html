@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+          <style>
+                   
+ .rect{
+                    width:100px;
+                    height:100px;
+                    border:2px solid black;
+                    background-color: orange;
+                    position:absolute;
+                    top:35%;
+                    left:45%;
+          }
+               
+          
+          </style>
+         
+</head>
+<body>
+
+          <div class="rect"></div>
+
+
+          <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js"></script>
+          <script>
+                    let p=document.getElementsByClassName("rect");
+                    document.addEventListener("mousemove",function(details){
+                              let get=p[0].getBoundingClientRect();
+                              let val1=gsap.utils.mapRange(0,window.innerWidth,0,window.innerWidth-get.width,details.clientX);
+                              let val2=gsap.utils.mapRange(0,window.innerHeight,0,window.innerHeight-get.height,details.clientY);
+                    gsap.to(p[0],{
+                           left: val1+"px",
+                           top: val2+"px",
+                    });
+                    })
+          </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- meta tags are important to apply media queries -->
+  <title>media queries</title>
+  <style>
+    body {
+      background-color: rgb(135, 222, 152);
+    }
+
+    div {
+      font-size: x-large;
+      text-align: center;
+    }
+
+    @media(min-width:900px) {
+      body {
+        background-color: pink;
+      }
+
+      div::after {
+        content: "hello world";
+      }
+    }
+
+    @media(min-width:950px) {
+
+      /*this will be applied after or at 950*/
+      body {
+        background-color: blue;
+      }
+
+
+      div::after {
+        content: "getting bigger";
+        /*pseudo is the only way to change or insert text when screen size is changing */
+      }
+    }
+
+    /* to apply range */
+    @media (min-width:100px) and (max-width:300px) {
+
+      /*@media(100px<= width<=300px)*/
+      body {
+        background-color: orange;
+      }
+
+      div::after {
+        content: "hello";
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+
+</body>
+
+</html>

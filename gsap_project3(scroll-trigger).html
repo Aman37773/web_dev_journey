@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .page1 {
+      width: 100%;
+      height: 100%;
+      background-color: blue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .box1 {
+      width: 100px;
+      height: 100px;
+      background-color: aqua;
+    }
+
+    .page2 {
+      width: 100%;
+      height: 100%;
+      background-color: green;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .box2 {
+      width: 100px;
+      height: 100px;
+      background-color: greenyellow;
+    }
+
+    .page3 {
+      width: 100%;
+      height: 100%;
+      background-color: red;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .box3 {
+      width: 100px;
+      height: 100px;
+      background-color: orange;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page1">
+    <p class="box1"></p>
+  </div>
+  <div class="page2">
+    <p class="box2"></p>
+  </div>
+  <div class="page3">
+    <p class="box3"></p>
+  </div>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+    integrity="sha512-Ic9xkERjyZ1xgJ5svx3y0u3xrvfT/uPkV99LBwe68xjy/mGtO+4eURHZBW2xW4SZbFrF1Tf090XqB+EVgXnVjw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    gsap.from(".box1", {
+      scale: 0,
+      rotate: 360,
+      delay: 0.3,
+      duration: 2,
+      scrollTrigger: {
+        trigger: ".box1",
+        scroller: "body",
+        markers: "true",   //markers are always present but making them true makes them visible on screen which helps to set them at appropriate position and then we can comment out markers:"true" to hide markers
+        start: "top 20%",   //this means start line will be at 10% from top and when that line will coincide with our box then box will undergo animation       //if we do not apply start then animation will start once it is visible on page
+        //end:"top 0%",   //when this line coincide with our mid of box1 on which animation is applied then animation will stop
+        scrub: 1,   //this will continiously do and revert changes as per scrolling     /we can also give it value as "true" or "false"  but giving it value from 1-5 especially 5 makes it smooth
+      }
+    })
+    gsap.from(".box2", {
+      scale: 0,
+      rotate: 360,
+      delay: 0.3,
+      duration: 2,
+      scrollTrigger: {
+        trigger: ".box2",
+        scroller: "body",
+      }
+
+    })
+  </script>
+</body>
+
+</html>

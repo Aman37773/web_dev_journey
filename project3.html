@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>project-3</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    .back {
+      /* if we already have file in pc then write like this (./..) */
+      /* linear-gradient should atleast have 2 colours and below thing will apply linear gradient over image */
+      background-image: linear-gradient(rgba(30, 26, 56, 0.7), rgba(47, 52, 72, 0.5)), url('./ban.png');
+      background-position: center;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .logo {
+      width: 10vw;
+      height: 5vh;
+    }
+
+    .listitems {
+      list-style: none;
+      display: flex;
+      gap: 2vw;
+      color: white;
+
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-around;
+      position: relative;
+      top: 5vh;
+    }
+
+    /* once we do this ::after, it makes item inline for a instance to add the content just after content already present and make whole block but if we do display:block in ::after then it will avoid making it inline for a instance and will add content of ::after in next line of already present content */
+    .listitems li::after {
+      /* always define content even if not going to include */
+      content: '';
+      width: 0%;
+      transition: width 0.8s;
+      display: block;
+      margin: auto;
+    }
+
+    .listitems li:hover::after {
+      color: pink;
+      width: 100%;
+      height: 2px;
+      background-color: orange;
+
+    }
+
+    .listitems li:hover {
+      color: pink;
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+
+    .heading {
+      position: relative;
+      top: 25vh;
+      text-align: center;
+      font-size: 3em;
+      color: rgb(211, 188, 188);
+      margin-left: 10vw;
+      margin-right: 10vw;
+    }
+
+    .para {
+      position: relative;
+      top: 30vh;
+      color: rgb(237, 210, 210);
+      font-size: 1.2em;
+      text-align: center;
+      margin-left: 10vw;
+      margin-right: 10vw;
+    }
+
+    .btn {
+      border: 3px solid rgb(216, 192, 192);
+      position: relative;
+      left: 44vw;
+      top: 35vh;
+      padding: 10px;
+      color: white;
+      text-decoration: none;
+      background-color: none;
+      transition: background-color 1s;
+    }
+
+    .btn:hover {
+      background-color: orange;
+    }
+
+    .close,
+    .burger {
+      display: none;
+    }
+
+    @media(max-width:720px) {
+      .btn {
+        left: 36vw;
+      }
+    }
+
+    @media(max-width:500px) {
+
+.listitems {
+  position: absolute;
+  right: 0px;
+  width:0%;
+  top: -5vh;
+  display:none;
+  padding-top: 15vh;
+  height: 100vh;
+  background-color: rgb(223, 118, 118);
+  z-index: 3;
+  flex-direction: column;
+  font-size: 1.3em;
+
+}
+
+
+.listitems li {
+  margin-left: 5vw;
+  margin-top: 3vh;
+}
+
+.listitems li:hover::after {
+  display: none;
+
+}
+
+.listitems li:hover {
+  color: rgb(189, 218, 25);
+
+}
+
+.close {
+  display: inline-block;
+  position: absolute;
+  width: 2em;
+  left: 0;
+  top: 0vh;
+
+}
+
+.burger {
+  display: inline-block;
+  width: 2em;
+
+}
+}
+
+    @media(max-width:700px) {
+
+      .logo {
+        width: 15vw;
+        height: 6vh;
+      }
+    }
+
+    @media(min-width:500px){
+      .listitems{
+        display:flex !important; 
+      }
+    }
+
+    @media(max-width:600px){
+      .maincourse{
+        flex-direction:column;
+      }
+      .happyyy{
+        flex-direction:column;
+        gap:5vh !important;
+      }
+      .happy{
+        width:70% !important;
+      }
+      .starttest{
+        flex-direction: column;
+        gap:2vh;
+        align-items: center;
+      }
+      .totrev{
+        width:70vw !important;
+      }
+.buttonn{
+  width: 25vw !important;
+}
+    }
+    @media(max-width:900px){
+      .images{
+        flex-direction:column;
+        align-items: center ;
+      }
+      .washingtonn,.newyorkk,.londonn{
+        width:60vw !important;
+      }
+    }
+
+    @media(max-width:350px){
+      .buttonn{
+        width:31vw !important;
+      }
+      .action{
+        height:40vh !important;
+      }
+      .inter,.deg,.post{
+        width:75vw !important;
+      }
+    }
+
+.course{
+text-align:center;
+/* height:20em; */
+padding-top:5em;
+color:rgb(127, 157, 255)
+}
+.coursee{
+  font-size:1.1em;
+ padding:30px;
+  width:55%;
+margin:auto;
+text-align:center;
+color:rgb(129, 142, 97);
+}
+.maincourse{
+  margin-top:10vh;
+  display:flex;
+  margin-left:10vh;
+  margin-right:10vh;
+gap:3vw;
+margin-bottom:10px;
+}
+.inter,.deg,.post{
+  text-align:center;
+  background-color:rgb(240, 214, 166);
+  border-radius:10px;
+}
+.know{
+  margin-top:5vh;
+}
+.inter:hover,.deg:hover,.post:hover{
+  box-shadow:5px 5px 20px 2px black;
+  transform:scale(1.05);
+}
+.campus{
+ padding:8vw;
+  width:20%;
+  margin:auto;
+  text-align:center;
+}
+.london{
+  /* background-image:url('./londonn.png'); this does not modify size */
+  position:relative;
+}
+.londonn{
+  width:34vw;
+  height:40vh;
+  border-radius:10px;
+}
+.layer{
+  position:absolute;
+  justify-content:center;
+  align-items:top;
+  top:0px;
+  width:100%;
+  height:100%;
+ background-color: transparent;
+ transition:1s;
+ font-size:1.5em;
+ display:flex;
+
+}
+.layer:hover{
+  background-color:rgba(227, 74, 44, 0.5);
+ align-items:center;  /* if flex-direction is column then align-items works along x and justify-content works along y */
+font-size:2em;
+}
+
+.washington{
+  position:relative;
+}
+.washingtonn{
+  width:32vw;
+  height:40vh;
+  border-radius:10px;
+}
+
+
+.newyork{
+  /* background-image:url('./londonn.png'); this does not modify size */
+  position:relative;
+}
+.newyorkk{
+  width:29vw;
+  height:40vh;
+  border-radius:10px;
+}
+
+.images{
+  display:flex;
+gap:1vw;
+margin-left:1vw;
+}
+
+.facilities{
+  margin-top:10vh;
+  text-align:center;
+}
+.facil{
+  margin-top:2.5vh;
+  font-size:1.5em;
+}
+.fac{
+  font-size:2em;
+}
+.happyyy{
+  margin-top:10vh;
+  display:flex;
+  gap:1vh;
+  font-size:1.5em;
+}
+.happy{
+  border-radius:10px;
+  width:28vw;
+  margin-left:2vw;
+  margin-right:2vw;
+  margin-bottom:3vh;
+}
+.happy:hover{
+  transform:scale(1.2);
+  box-shadow:5px 5px 20px 2px black;
+}
+.happyy{
+  text-align:center;
+}
+.test{
+  margin-top:18vh;
+  text-align:center;
+}
+.testi{
+  margin-top:2vh;
+  font-size:1.5em;
+}
+.testimonial{
+  font-size:2em;
+}
+.user1,.user2{
+  width:5vw;
+  border-radius:50%;
+}
+
+.starttest{
+  margin-top:10vh;
+}
+.totrev{
+  margin-left:3vw;
+  width:45vw;
+  background-color:rgb(239, 221, 187);
+}
+.totrev:hover{
+  transform:scale(1.1);
+box-shadow:3px 3px 20px 2px black;
+}
+.rev{
+  position:relative;
+  bottom:3vh;
+margin-left:7vw;
+}
+.name{
+  font-size:1.7em;
+  margin-left:10%;
+  font-weight: 1000;
+}
+.starttest{
+  display:flex;
+}
+.star{
+  margin-left:4vw;
+}
+span{
+  color:rgb(227, 100, 37);
+}
+.action{
+  margin:auto;
+  margin-top:20vh;
+  background-image:linear-gradient(rgba(28, 25, 25, 0.9),rgba(1,1,1,0.7)),url('./banner2.jpg');
+  width:90vw;
+  height:30vh;
+}
+.act{
+  position:relative;
+  color:bisque;
+  text-align:center;
+  top:30%;
+  font-size:1.5em;
+}
+.buttonn{
+  position:relative;
+  top:50%;
+  left:40%;
+  padding:0.8em;
+  width:15vw;
+ background-color: rgb(221, 114, 13);
+}
+.buttonn:hover{
+  transform:scale(1.1);
+
+}
+.about{
+  margin-top:15vh;
+  text-align: center;
+}
+.aboutuspara{
+width:70vw;
+text-align:center;
+margin:auto;
+padding:3vw;
+}
+.icon{
+  text-align:center;
+  margin-bottom:5vh;
+}
+.fa{
+margin-left:3vw;
+}
+.fa:hover{
+transform:scale(2);
+}
+  </style>
+</head>
+
+<div class="back">
+  <div class="top">
+    <img src="./logo.png" class="logo">
+    <div class="list">
+  
+      <button class="burger" type="button" onclick="showmenu()"> &#9776;</button>
+  
+      <ul class="listitems" id="listttitems">
+        <button class="close" type="button" onclick="hidemenu()">&#x274C;</button>
+        <li>home</li>
+        <li>about</li>
+        <li>course</li>
+        <li>blog</li>
+        <li>contact</li>
+      </ul>
+  
+    </div>
+  </div> 
+  <h1 class="heading">World's Biggest University</h1>
+<p class="para">Making website is one of the easiest thing in the world.you just need to learn html,css and javascript
+  and you are good to go.</p>
+<a href="" class="btn">visit us to know more</a>
+</div>
+
+<h1 class="course">COURSES WE OFFER</h1>
+<p class="coursee">  rerum aliquid? Harum iure sequi nobis ducimus. Ea, nostrum!</p>
+
+<div class="maincourse">
+  <div class="inter">
+    <h2>INTERMEDIATE</h2>
+  <p class="know">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab eos ea atque facilis molestiae quia eligendi nisi voluptate quos saepe!</p>
+  </div>
+  
+  <div class="deg">
+    <h2>DEGREE</h2>
+    <p class="know">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab eos ea atque facilis molestiae quia eligendi nisi voluptate quos saepe!</p>
+  </div>
+  
+  <div class="post">
+    <h2>POST-GRADUATION</h2>
+    <p class="know">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab eos ea atque facilis molestiae quia eligendi nisi voluptate quos saepe!</p>
+  </div>
+</div>
+
+<h2 class="campus">OUR GLOBAL CAMPUS</h2>
+
+<div class="images"> 
+  <div class="london">
+    <!-- below type image modifies the size so specially target londonn to modify size -->
+    <img src="./londonn.png" class="londonn"> 
+    <div class="layer">
+      <div class="text">london</div>
+    </div>
+   
+  </div>
+  
+  <div class="washington">
+    <img src="./washington.png" class="washingtonn"> 
+    <div class="layer">
+      <div class="text">washington</div>
+    </div>
+  </div>
+  
+  <div class="newyork">
+    <img src="./newyork.png" class="newyorkk"> 
+    <div class="layer">
+      <div class="text">newyork</div>
+    </div>
+  </div>
+</div>
+
+<div class="facilities">
+  <h1 class="fac">OUR FACILITIES</h1>
+  <P class="facil">Lorem ipsum dolor sit amet consectetur.</P>
+</div>
+
+<div class="happyyy">
+  <div class="happyy">
+    <img src="./basketball.png" class="happy">
+    <p><strong>world class sports</strong></p>
+  </div>
+  <div class="happyy">
+    <img src="./cafeteria.png" class="happy">
+    <p><strong>hygenic and healthy meals</strong></p>
+  </div>
+  <div class="happyy">
+    <img src="./library.png" class="happy">
+    <p><strong>world class library</strong></p>
+  </div>
+</div>
+
+<div class="test">
+  <h1 class="testimonial">What Our Student Says</h1>
+  <p class="testi">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+</div>
+
+<div class="starttest">
+  <div class="totrev">
+    <div>
+      <img src="./user1.jpg" class="user1">
+    </div>
+  <p class="rev">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure molestias necessitatibus non dolorum a quasi exercitationem voluptatum sequi iusto vitae!</p>
+  <p class="name">marry</p>
+  <span class="star">&#9733</span> <!--color property works well on entity-->
+  <span>&#9733</span>
+  <span>&#9733</span>
+  <span>&#9733</span>
+  <span>&#9733</span>
+  </div>
+  
+  <div class="totrev">
+    <div>
+      <img src="./user2.jpg" class="user2">
+    </div>
+  <p class="rev">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure molestias necessitatibus non dolorum a quasi exercitationem voluptatum sequi iusto vitae!</p>
+  <p class="name">manuel</p>
+  <span class="star">&#9733</span>
+  <span>&#9733</span>
+  <span>&#9733</span>
+  <span>&#9733</span>
+  <span>&#9733</span>
+  </div>
+</div>
+
+
+
+<div class="action">
+  <h1 class="act">Enroll in our courses from anywhere in the world</h1>
+  <button class="buttonn">contact us</button>
+</div>
+
+<div class="about">
+  <h1 class="aboutus">about us</h1>
+  <p class="aboutuspara">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quasi atque iusto id quia accusantium beatae ipsam tempora, consectetur veritatis.</p>
+</div>
+
+<div class="icon">
+  <a style="font-size:24px" class="fa fa-instagram" href="https://instagram.com"></a>
+  <a style="font-size:24px" class="fa fa-linkedin-square" href="https://linkedin.com"></a>
+  <a style="font-size:24px" class="fa fa-facebook-f" href="https://facebook.com"></a>
+</div>
+
+
+
+<script>
+  // always by id
+  var listitems = document.getElementsById("listttitems");
+
+  function showmenu() {
+    listttitems.style.display="flex";
+    listttitems.style.width="40%";
+
+  }
+  function hidemenu() {
+    listttitems.style.display= "none";
+  }
+</script>
+
+</body>
+
+</html>

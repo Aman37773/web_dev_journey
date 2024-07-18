@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0 ">
+        <title>document</title>
+        <style>
+                * {
+                        font-family: "Lucida Console", "Courier New", monospace;
+                        font-size: medium;
+                }
+
+
+                body {
+                        background-image: url('https://m.media-amazon.com/images/I/71S2oHMHC2L.jpg');
+                }
+
+                #first {
+                         position: absolute; /*doing it absolute makes right box to cover its place thats why second box coming upwards to cover its position but margin auto is set so it will remain at horizontal center and third box is applied with top and keft sol willl remain there*/
+                        top: 10px;
+                        display: inline-block;
+                        border: 2px solid blue;
+                        width: 100px;
+                        height: 100px;
+                        background-color: rgb(255, 255, 255);
+                        text-align: center;
+                        line-height: 17px;
+
+                }
+
+                #second {
+                        display: block;
+                        width: 40%;
+                        margin: auto;
+                        border: 2px solid blue;
+                        color: white;
+                        border-radius: 15px;
+                }
+
+                #second li {
+                        list-style: none;
+                        display: inline;
+                        margin: 15px;
+                }
+
+                 #third {
+                        position: absolute;
+                        right: 1px;
+                        top: 20px;
+                } 
+
+                #set {
+                        margin: auto;
+                }
+
+                .click:hover {
+                        color: rgb(238, 188, 188);
+                        text-decoration: underline;
+                        cursor: pointer;
+                }
+
+                #first img,
+                #third img {
+                        width: 100%;
+                        height: 60%;
+                }
+
+                .btn {
+                        border-radius: 10px;
+                        cursor: pointer;
+                }
+
+                .btn:hover {
+                        background-color: rgb(166, 126, 176);
+                }
+
+                #name {
+                        border: 2px solid red;
+                        border-radius: 30px;
+                        border-left-color: yellow;
+                        border-right-color: green;
+                        margin-top: 100px;
+                        color: white;
+                        width: 40%;
+                }
+
+                #name h1 {
+                        text-align: center;
+                        font-size: 20px;
+                        margin-bottom: 30px;
+                }
+               
+                #name input {
+                        text-align: center;
+                        display: block;
+                        width: 60%;
+                        margin: 10px auto;
+                        font-size: 20px;
+                        border-radius:5px;
+                }
+                
+              
+                #change {
+                        display:block;
+                        margin: auto;
+                        cursor: pointer;
+                        border-radius:10px;
+                        background-color: black;
+                        color:aliceblue;
+                }
+
+                #yes{                     
+         width:20% ;   /* this does not work but it should be followed as it is class member but exceptions are there so write !important to get it to be followed */
+        }
+
+
+        </style>
+</head>
+
+<body>
+
+        <div id="first">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/000/539/724/small/dumbbell_2__28b_w_29.jpg"
+                        alt="">
+                muscle up
+        </div>
+
+        <div id="second">
+                <ul>
+                        <nav id="set">
+                                <li class="click">home</li>
+                                <li class="click">about us</li>
+                                <li class="click">fitness calculator</li>
+                                <li class="click">contact us</li>
+                        </nav>
+
+                </ul>
+        </div>
+
+        <div id="third">
+                <button class="btn">call us</button>
+            <button class="btn">conatct us</button>
+        </div>
+
+        <div id="container">
+                <form action="nophp.com">
+                        <div id="name">
+                                <h1>join the best gym of haryana</h1>
+                                <div>
+                                        <input type="text" name="nameholder" placeholder="enter your name">
+                                </div>
+                                <div>
+                                        <input type="text" name="nameholder" placeholder="enter your gender">
+                                </div>
+                                <div>
+                                        <input type="text" name="nameholder" placeholder="enter your age">
+                                </div>
+                                <div>
+                                        <input type="text" name="nameholder" placeholder="enter your weight" id="yes">
+                                </div>
+                                <div id="submitone">
+                                        <button id="change">submit now</button>
+                                </div>
+
+
+
+                        </div>
+                </form>
+        </div>
+
+
+
+</body>
+
+</html>

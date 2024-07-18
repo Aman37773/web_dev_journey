@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #001e4d;
+    }
+
+    .container {
+      position: relative;
+      margin: auto;
+      top: 100px;
+      width: 40%;
+      /* height:20vw; */
+      background-color: white;
+      min-height: 10vh;
+      border-radius: 10px;
+      border:2px solid red;
+      overflow: hidden;
+    }
+
+    .question {
+      padding: 10px;
+      width: 90%;
+      margin-left: 10px;
+      font-size: 25px;
+      font-weight: 999;
+    }
+
+    .options {
+      margin-top: 20px;
+    }
+
+    button {
+      cursor: pointer;
+      margin-top: 10px;
+      text-align: left;
+      width: 100%;
+      font-size: 20px;
+      font-weight: 70000;
+      color: rgb(70, 54, 32);
+      border: none;
+      outline: none;
+      background-color: white;
+      padding: 10px;
+      border-radius: 120px;
+    }
+
+    button:hover {
+     transform:scale(1.01);
+    }
+
+    .next {
+      width: 11%;
+      background-color: rgb(102, 206, 222);
+    }
+
+    .nextt {
+      display: flex;
+      justify-content: center;
+    }
+    .container .score{
+      width:100%;
+      height:100%;
+      background-color: aquamarine;
+      position:absolute;
+      bottom:0vw;
+      z-index:10;
+      font-weight: 999;
+      font-size:2vw;
+      transform: translateX(100%);
+    }
+    .container .score p{
+      position:relative;
+      top:80px;
+      left:60px;
+    }
+    .container .score span{
+      position:relative;
+      top:40px;
+      left:340px;
+      font-size:3vw;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+
+
+    <div class="question"></div>
+    <div class="options">
+      <button class="option1"></button>
+      <button class="option2"></button>
+      <button class="option3"></button>
+      <button class="option4"></button>
+    </div>
+    <div class="nextt">
+      <button class="next">NEXT</button>
+    </div>
+
+    <div class="score">
+      <p>YOUR SCORE IS:</p>
+<span>1/5</span>
+      </div>
+  </div>
+
+
+
+
+  <script>
+    let array = [
+      {
+        question: `1. &nbsp;  what is the national game of india?`,   //backticks are used for string and also enables to add variables(${}) and html entities(directly like &nbsp;)
+        option: [
+          { game: `a. &nbsp; hockey`, class: "correct" },
+          { game: `b. &nbsp; cricket`, class: "incorrect" },
+          { game: `c. &nbsp; football`, class: "incorrect" },
+          { game: `d. &nbsp; chess`, class: "incorrect" },
+
+        ],
+      },
+
+      {
+        question: `2. &nbsp; what is the national bird of india?`,
+        option: [
+          { game: `a. &nbsp; chirps`, class: "incorrect" },
+          { game: `b. &nbsp; peacock`, class: "correct" },
+          { game: `c. &nbsp; hummingbird`, class: "incorrect" },
+          { game: `d. &nbsp; loki`, class: "incorrect" },
+
+        ],
+      },
+
+      {
+        question: `3. &nbsp; what is the national esport of india?`,
+        option: [
+          { game: `a. &nbsp; pubg`, class: "incorrect" },
+          { game: `b. &nbsp; stumble guys`, class: "incorrect" },
+          { game: `c. &nbsp; pool`, class: "incorrect" },
+          { game: `d. &nbsp; getting over it`, class: "correct" },
+
+        ],
+      },
+
+      {
+        question: `4. &nbsp; what is the national animal of india?`,
+        option: [
+          { game: `a. &nbsp; lion`, class: "incorrect" },
+          { game: `b. &nbsp; wolf`, class: "incorrect" },
+          { game: `c. &nbsp; tiger`, class: "incorrect" },
+          { game: `d. &nbsp; dog`, class: "correct" },
+
+        ],
+      },
+    ]
+
+
+
+    let score = 0;
+    let i = 0;
+    question(i);
+    function question(i) {
+
+      if(i==4){
+        document.querySelector(".container .score").style.transform="translateX(0%)";
+document.querySelector(".container .score span").innerHTML=`${score}/4`;
+return;
+      }
+
+
+      document.querySelectorAll(".options button").forEach((button) => {
+        button.style.backgroundColor = "white";
+      })
+      document.querySelector(".question").innerHTML = array[i].question;
+      document.querySelector(".option1").innerHTML = array[i].option[0].game;
+       document.querySelector(".option1").setAttribute("value", array[i].option[0].class);   //or classList.add and classList.remove can also be used to remove previous class and add new class but setattribute also replaces previous class with newly added class
+      document.querySelector(".option2").innerHTML = array[i].option[1].game;
+      document.querySelector(".option2").setAttribute("value", array[i].option[1].class);
+      document.querySelector(".option3").innerHTML = array[i].option[2].game;
+      document.querySelector(".option3").setAttribute("value", array[i].option[2].class);
+      document.querySelector(".option4").innerHTML = array[i].option[3].game;
+      document.querySelector(".option4").setAttribute("value", array[i].option[3].class);
+
+    }
+
+
+
+    let choose = document.querySelector(".options")
+    choose.addEventListener("click", (item) => {
+      if (item.target.value === "correct") {
+        item.target.style.backgroundColor = "green";
+        ++score;
+      }
+      else if(item.target.value === "incorrect"){
+        item.target.style.backgroundColor = "red";
+        document.querySelectorAll("button").forEach((p) => {
+          if (p.className === "correct") {
+            p.style.backgroundColor = "green";
+          }
+        })
+
+      }
+    })
+
+   
+
+
+    document.querySelector(".next").addEventListener("click", () => {
+      
+      ++i;
+      question(i);
+     
+    
+    })
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>

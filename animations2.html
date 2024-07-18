@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>animations</title>
+          <style>
+                    .container {
+                              
+                              width:200px;
+                              height: 200px;
+                              /* background-color: red; */
+                              animation-name: colorchange;
+                              animation-duration: 0.5s;
+                              /* animation-delay: 2s; */
+                              position: relative;
+                              animation-iteration-count: infinite;
+                              /* even can write infinite */
+
+                              /* animation-direction: reverse;  to reverse direction of animation(100% to 0%) */
+                              /* animation-direction: alternate-reverse; to alternatively change direction(100% to 0% then 0% to 100% then..) */
+                              /* animation-direction:alternate; to alternatively change direction(0% to 100% then 100% to 0% then..) */
+                              /* animation-timing-function:ease; */
+                              /*slow fast slow  (by default)*/
+                              /* animation-timing-function:ease-out;*/
+                              /*fast slow */
+                              /* animation-timing-function:ease-in;*/
+                              /* slow fast */
+                              /* animation-timing-function:ease-in-out;*/
+                              /*slow fast slow */
+                              /* animation-timing-function:linear;*/
+                              /*same speed throughout */
+
+
+                    }
+                   
+
+
+                    @keyframes colorchange {
+
+                              /* for relative position,position will always be with respect to  initial position but not the current position during  transition*/
+                              /*from {
+                                        background-color:pink;
+                                        margin-left:0px;
+                              }
+                              to{
+                                        background-color:blue;
+                                        margin-left:200px;
+                              } */
+                              0%,
+                              100% {
+                                        border-top: 5px solid red;
+                                        background-color: none;
+
+                              }
+
+                              25% {
+                                        border-right: 5px solid green;
+                                        background-color: none
+                              }
+
+                              50% {
+                                        border-bottom: 5px solid green;
+                                        background-color: none;
+
+                              }
+
+                              75% {
+                                        border-left: 5px solid rgb(20, 125, 196);
+                                        background-color: none;
+
+                              }
+
+                              100% {
+                                        border-top: 5px solid pink;
+                                        background-color: none;
+
+                              }
+
+
+
+                    }
+          </style>
+</head>
+
+<body>
+          <div class="container">
+                    <p>
+          </div>
+
+
+</body>
+
+</html>

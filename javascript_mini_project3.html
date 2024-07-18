@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+          <style>
+                    .rect {
+                              width: 400px;
+                              height: 300px;
+                              background-color: orange;
+                              position: absolute;
+                              top: 30vh;
+                              left: 40vw;
+                    }
+
+                    .box {
+                              overflow: hidden;
+                    }
+
+                    .imgg {
+                              width: 100%;
+                              height: 100%;
+                              object-fit: cover;
+                              transform: translateY(90%)
+                    }
+          </style>
+</head>
+
+<body>
+          <div class="rect"></div>
+
+          <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js"></script>
+          <script>
+                    const throttleFunction = (func, delay) => {    //throttling function: when a function is getting called many times then to reduce the no. of times we need to use throttling function
+                              let prev = 0;
+                              return (...args) => {
+                                        let now = new Date().getTime();
+                                        console.log(now - prev, delay);
+                                        if (now - prev > delay) {
+                                                  prev = now;
+                                                  return func(...args);
+                                        }
+                              }
+                    }
+
+                    let p = document.getElementsByClassName('rect');
+                    p[0].addEventListener("mousemove", throttleFunction((details) => {
+                              let n = document.createElement('div');
+                              n.className = "box";
+                              n.style.width = "100px";
+                              n.style.height = "100px"
+                              n.style.position = "absolute"
+                              n.style.left = details.clientX + "px";
+                              n.style.top = details.clientY + "px";
+                              let image = document.createElement("img");
+                              image.className = "imgg"
+                              image.setAttribute('src', "./imgg.jpg");
+                              n.appendChild(image);
+                              document.body.appendChild(n);
+                              gsap.to(image, {
+                                        transform: "translateY(0%)",
+                                        ease: Power4
+                              })
+                              setTimeout(function () {
+                                        n.remove();
+                              }, 1000)
+
+
+                    }, 200)
+                    )
+          </script>
+</body>
+
+</html>

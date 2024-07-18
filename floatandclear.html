@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float and clear</title>
+
+    <style>
+*{
+    box-sizing:border-box;
+    text-align:center;
+    /* margin:auto; */
+ } 
+
+
+
+        .item {
+            border: 2px solid red;
+            /* padding: 3px 10px; */
+            background-color: rgb(134, 209, 209);
+            margin: 5px;
+            /* text-align: center; */
+        }
+
+        #container {
+
+             width: 600px;
+            height: 250px; 
+
+             margin: 100px auto;      /* margin:auto means to horizontally center the element*/
+            background-color:pink;
+            border:3px solid green;
+        }
+
+        #fruit {
+            float: left;
+           width: 48%;
+            clear:left;
+        }
+
+        #veg {
+             float: right;
+            width: 48%; 
+            
+            
+        }
+
+        #omni {
+            clear:both; 
+        }
+
+
+    </style>
+
+
+</head>
+
+<body>
+    <h1>HELLO EVERYONE</h1>
+    <div id="container">
+        <h1>welcome to my store</h1>
+        <div id="fruit" class="item">
+            <h3>first</h3>
+        </div>
+        <div id="veg" class="item">
+            <h3>second</h3>
+        </div>
+        <div id="omni" class="item">
+            <h3>third</h3>
+        </div>
+    </div>
+    
+</body>
+
+</html>

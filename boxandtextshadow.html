@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>box shaddow and text shaddow</title>
+          <style>
+                    .container {
+                              
+                              border: 2px solid red;
+                              width: 400px;
+                              height: 200px;
+                              margin: 30px;
+                              /* box-shadow:offset-x offset-y  color; */
+                              /* box-shadow:offset-x offset-y blur-radius color;
+                              box-shadow:offset-x offset-y blur-radius spread-radius color; */
+                              /* text-shadow:offset-x offset-y  color; */
+                              /* text-shadow:offset-x offset-y blur-radius color;
+                              /* in rgba, a is alpha which decides intensity of that color and it lies from 0-1(like 0.7); */
+                              /* in text-shadow, spread-radius and inset are not there */
+                              /* if offset-x is negative then it will apply on left edge and if offset-y is negative then it will apply on top edge */
+                              /* box-shadow: inset 3px 4px 4px 2px rgba(189, 39, 42, 0.7);   due to inset all the impacts will be applied inside box*/
+                              /* box-shadow and text-shadow can be applied to any type of element(inline,block etc.); */
+
+                              box-shadow: 3px 4px 4px 2px rgba(189, 39, 42, 0.7);
+                              text-shadow: 2px 2px 1px rgba(80, 189, 17, 0.7);
+
+                    }
+          </style>
+</head>
+
+<body>
+          <div class="container">
+                    <h1>hello</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto ipsum veritatis corporisam omnis?
+                              Iste veniam quo impedit architecto officia a rem ipsam doloribus tempore!</p>
+                    </div>
+
+
+</body>
+
+</html>

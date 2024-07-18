@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>animations</title>
+      <style>
+            p {
+                  width: 100px;
+                  height: 100px;
+                  background-color: red;
+                  animation-name: colorchange;
+                  animation-duration: 10s;
+                  animation-delay: 2s;
+                  position: relative;
+                  animation-iteration-count: 2;
+                  /* even can write infinite */
+
+                  /* animation-direction: reverse;  to reverse direction of animation(100% to 0%) */
+                  /* animation-direction: alternate-reverse; to alternatively change direction(100% to 0% then 0% to 100% then..) */
+                  /* animation-direction:alternate; to alternatively change direction(0% to 100% then 100% to 0% then..) */
+                  /* animation-timing-function:ease; */
+                  /*slow fast slow  (default)*/
+                  /* animation-timing-function:ease-out;*/
+                  /*fast slow */
+                  /* animation-timing-function:ease-in;*/
+                  /* slow fast */
+                  /* animation-timing-function:ease-in-out;*/
+                  /*slow fast slow */
+                  /* animation-timing-function:linear;*/
+                  /*same speed throughout */
+                   /*animation-fill-mode:forwards;*/  /*retain the changes done by last keyframe(100%) of cycle */
+                   /* animation-fill-mode:backwards; */  /*retain the changes done by last keyframe(100%) of cycle and retain till delay period*/
+                   /* animation-fill-mode:both; */  /*follows both forward and backward*/
+                    /* animation-fill-mode:none; */  /*default*/
+            }
+
+
+            @keyframes colorchange {
+
+                  /* for relative position,position will always be with respect to  initial position but not the current position during  transition*/
+                  /*from {
+                                        background-color:pink;
+                                        margin-left:0px;
+                              }
+                              to{
+                                        background-color:blue;
+                                        margin-left:200px;
+                              } */
+                  0% {
+                        background-color: pink;
+                        top: 0px;
+                        left: 0px;
+                  }
+
+                  25% {
+                        background-color: green;
+                        top: 0px;
+                        left: 200px;
+                  }
+
+                  50% {
+                        background-color: blue;
+                        left: 200px;
+                        top: 100px;
+                  }
+
+                  75% {
+                        background-color: red;
+                        top: 100px;
+                        left: 0px;
+                  }
+
+                  100% {
+                        background-color: orange;
+                        top: 0px;
+                  }
+            }
+      </style>
+</head>
+
+<body>
+      <p></p>
+</body>
+
+</html>

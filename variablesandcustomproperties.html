@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+          <style>
+                    :root{
+                              /* all these variables can be accessed in any container */
+                              --rang-:orange;
+                              --wid-:100px;
+                              --high-:100px;
+                    }
+                    p{
+                              /* this color named variable can only be accessed in this container only */
+                              /* variable can have any random name */
+                              --color-:blue;
+                              border:2px solid red;
+                              background-color: var(--color-);
+                              width:var(--wid-);
+                              height:var(--high-);
+
+                    }
+          </style>
+</head>
+<body>
+          <p class="hell">hello</p>
+</body>
+</html>

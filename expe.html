@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>grid</title>
+  <style>
+    .container {
+      border: 2px solid black;
+      display: grid;
+      
+      height:500px;
+
+  gap:10px;
+
+  /* grid-template-columns:100px 100px 100px;
+ grid-template-rows:200px 100px; */
+
+
+ /* this is used just to decide the position of boxes and its easy way to decide number of rows and columns as the design on the page is same as the way we write it inside grid area and from below it will have 2 rows and 3 columns in the mentioned way and we can use grid-template-row and grid-template-column to modify the width and height of each row and column */
+ grid-template-areas:
+ 'box1 box2 box2'
+ 'box1 box3 box3';
+
+ 
+
+
+    }
+
+    .box {
+     
+
+    }
+
+    .box1 {
+      background-color: red;
+      border: 2px solid black;
+     
+ /* this only defines name of grid-area through which it will be reffered and every box should have unique gride-area name */
+ grid-area:box1;  
+
+    }
+
+    .box2 {
+       
+      background-color: green; 
+      border: 2px solid black;
+      
+      grid-area:box2;
+     
+    }
+
+    .box3 {
+      background-color: blue;
+      border: 2px solid black;
+      grid-area:box3;
+    }
+
+  
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+       
+    <div class="box box1"></div>
+    <div class="box box2"></div>
+    <div class="box box3"></div>
+    
+  </div>
+</body>
+
+</html>

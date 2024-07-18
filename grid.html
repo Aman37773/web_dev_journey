@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>grid</title>
+  <style>
+    .container {
+      border: 2px solid black;
+      display: grid;
+      /*once this used this will fit the box in parent container size and if box size is already taken then it take empty space in between to cover whole parent container */
+      height:500px;
+
+      /* grid-template-columns:repeat(6,100px); */
+      /* grid-template-columns:100px 100px 100px 100px 100px 100px; here auto may be used to get size of box as much as it will cover whole screen without  affecting others width*/
+      
+
+
+      /* fr divides whole screen into fractions */
+      /* grid-template-columns:1fr 1fr;  this is used to get boxes in column in such a way that column will get elements first but rowwise and gives width to each column*/
+      /* grid-template-rows:100px 100px 100px; this is used to give height to each row */
+      /* both of these could not override the original size of box so gives empty space if they increase box size more than its original size */
+      /* grid-template-rows:100px; */
+
+      /* gap row-gap column-gap works fine here */
+
+      /* grid-template-rows: 2fr 1fr; */
+      /* grid-auto-rows: 1fr;*/
+      /*for rest of rows*/
+
+      /* grid-template-columns: repeat(3, 100px); */
+      gap:10px;
+
+
+      /* autofit is used to keep automatically changing the number of columns as per need and min value is 30 px which means during reducing screen size ,if it gets below 30 px then number of columns will decrease to maintain width of box more than 30px and at maximum screen size, 1 row and so many columns will be there */
+      /* grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); */
+
+
+    }
+
+    .box {
+      /* width: 100px; */
+      /* height:100px;  */
+      
+
+    }
+
+    .box1 {
+      background-color: red;
+      border: 2px solid black;
+     
+ 
+
+      /* align-self:center,start,end; this works inside size(height) set by grid-template-row and if grid-template-row is not declared them it will work with respect to whole container*/
+      /* justify-self:start,center,end; this works inside size(width) set by grid-template-column and if grid-template-column is not declared then it will work with respect to whole container*/
+      /* justify-self:center; */
+    }
+
+    .box2 {
+       
+      background-color: green; 
+      border: 2px solid black;
+      
+     
+     
+    }
+
+    .box3 {
+      background-color: blue;
+      border: 2px solid black;
+       /* as per this , boxes in every column are numbered as,top edge is 1 then bottom edge is 2 then bottom edge of rest boxes in that column as 3,4,5... so if we write row start from 1 to 3 then it will extend its height from 1 upto 3 in that row but here only thing is we alse need to mention the grid-start-column and grid-end-column to avoid change in position of box  */
+      /* grid-row-start:1 ;
+                            or grid-row:1/3;
+     grid-row-end:3 ;
+     grid-column:3/4; */
+
+     /* we can also write grid-area to avoid writing grid-row-start, grid-row-end ,grid-column-start and grid-column-end
+     grid-area:grid-row-start/grid-column-start/grid-row-end/grid-column-end; */
+    }
+
+    .box4 {
+      background-color: orange;
+      border: 2px solid black;
+
+      /* as per this , boxes in every row are numbered as ,left edge of box1 is 1 then right edge is 2 then right edge of next boxes in that row is 3 ,4 ,5 ... and if we write this column start from 1 to 3 then it will extend width that box from 1 of that row to 3 of that row */
+      /* grid-column-start:1;
+                               or grid-column:1/3;
+      grid-column-end:3; */
+
+    }
+
+    .box5 {
+      background-color: pink;
+      border: 2px solid black;
+      
+
+      
+    }
+
+    .box6 {
+      background-color: rgb(198, 243, 110);
+      border: 2px solid black;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="box box1"></div>
+    <div class="box box2"></div>
+    <div class="box box3"></div>
+    <div class="box box4"></div>
+    <div class="box box5"></div>
+    <div class="box box6"></div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>grid</title>
+  <style>
+   .container{
+          display:grid;
+          border:2px solid red;
+
+          grid-template-columns: auto,auto,auto;
+          grid-template-rows:auto,auto,auto;
+       gap:10px;
+   }     
+.box{
+  height:100px;       
+}
+.box1{
+border:2px solid red;
+background-color: #ffa500;
+grid-area: 1/2/2/5
+
+grid-template-rows: ;
+         }
+         
+
+         .box2{
+border:2px solid red;
+background-color: blue;
+
+         }
+         
+
+.box3{
+border:2px solid red;
+background-color: pink;
+grid-row: 2/3;
+         }
+
+
+
+ .box4{
+border:2px solid red;
+background-color: purple;
+
+
+         }
+
+
+         .box5{
+border:2px solid red;
+background-color: yellow;
+grid-row: 3/;
+
+
+
+         }
+/*
+         .box6{
+border:2px solid red;
+background-color:aquamarine;
+grid-column-start: 1;
+grid-column-end: 3;
+
+         }
+         */
+   
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+ <div class="box1 box">header</div>
+ <div class="box2 box">menu</div>
+ <div class="box3 box">box 1</div>
+ <div class="box4 box">box 2</div>
+ <div class="box5 box">sidebar</div>
+ <div class="box6 box">content</div>
+ 
+  </div>
+</body>
+
+</html>

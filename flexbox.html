@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flexbox</title>
+  <style>
+    .box1,
+    .box2,
+    .box3,
+    .box4 {
+      width: 100px;
+      height: 100px;
+      background-color: yellow;
+      border: 2px solid orange;
+    }
+
+    #yo {
+      border: 2px solid black;
+      height: 500px;
+     
+      /* this give inline properties to container and applies flex to it but still can modify width and height*/
+      /* display:inline-flex; */
+
+      /* magic about flex is it does not do elements inline-block still align them horizontally and all properties of block like margin:auto works*/
+      display: flex;
+
+      /* to reverse flex direction rowwise */
+      /* flex-direction:row-reverse; */
+
+      /* to display in coloumn */
+      /* flex-direction:column; */
+
+      /* to reverse flex direction columnwise */
+      /* flex-direction:column-reverse; */
+
+      /* to avoid overriding during reduced screensize and get horizontal content vertical we use this wrap */
+      /* flex-wrap:wrap-reverse;  to wrap in reverse order */
+      /* flex-wrap: wrap; */
+
+      /* justify-content: center;  start,end ,space-around,space-evenly,space-between     this works along x-axis*/
+      /* justify-content:space-evenly; */
+
+      /* align item helps in aligning content along y-axis */
+      /* align-items:flex-start,flex-end,center ;*/
+      /*here stretch will work if we avoid setting width and height of big container */
+
+      /* gap */
+      /* gap: 10px; app;ies to both row and coloumn */
+      /* row-gap: 10px; gives gap along row  */
+      /* column-gap: 10px; gives gap along coloumn */
+
+      /* flex flow
+      this helps to give both flex direction and flex wrap
+flex-flow:  flex-direction  flex-wrap */
+/* flex-flow:column wrap-reverse; */
+
+
+/* align content==this works only when flex-wrap is used and content is wrapped up  */
+/* align-content:center,flex-start,flex-end;  this works only when width is decreased enough to wrap the content*/
+/* align-content:center; */
+
+
+/* order is used inside boxes to set their position(default value of order for boxes is zero) */
+
+/* flex-grow is used in box and will relatively increase the width of box by overriding original width*/
+
+/* flex-shrink is used in box and will relatively  shrink the box only when screen width is decreased  */
+
+
+/* align self is used in box and targets particular box to change its alignment(vertically) by setting center,flex-start,flex-end */
+ 
+/* flex-basis is used in box and sets(in px) the initial width of box by overriding original width */
+
+/* flex:flex-grow flex-shrink flex-basis  --this helps to give three things together */
+    }
+
+    .box2 {
+      /* when we apply margin:auto; this will adjust margin-left and margin-right to get exactly at horizontal center due to this both left and right containers will get at their extreme left and right positions respectively*/
+      /* margin:auto; */
+      
+      
+    }
+
+    .box3 {
+      /* margin:auto; this will work*/
+    }
+  </style>
+</head>
+
+<body>
+  <div id="yo">
+    <div class="box1">1</div>
+    <div class="box2">2</div>
+    <div class="box3">3</div>
+    <div class="box4">4</div>
+
+
+  </div>
+
+</body>
+
+</html>

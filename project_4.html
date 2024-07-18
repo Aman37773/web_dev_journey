@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>project_4</title>
+</head>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .cursor-blur{
+    display:none;
+    position:fixed;
+    width:300px;
+    height:300px;
+    background-color:rgba(109, 219, 94, 0.5);
+    border-radius: 50%;;
+  }
+  .page1{
+    width:100vw;
+    height:100vh;
+  }
+  .main{
+    width:100vw;
+  
+  }
+  .navbar img {
+     position:relative;  /* a box is absolute ,relative to that box which is marked relative inside common container else will act with respect to body */
+    bottom:15px;
+    height: 10vh;
+    width: 10vw;
+    padding-left: 5vw;
+  }
+
+  .navbar {
+    height:13vh;
+    width:100vw;
+    padding-top: 2vw;
+    display: flex;
+    justify-content: start;
+    gap: 4vw;
+    font-size: 1.3vw;
+    color: rgb(161, 30, 63);
+    position: fixed;
+    z-index:12;
+    font-style: italic;
+  }
+  
+  .navbar p{
+    height:25px;
+    cursor:pointer;
+  }
+  .navbar p:hover{
+    color:rgb(37, 67, 78);
+transform:scale(1.15);
+  }
+
+
+  
+.cursor{
+  display:none;
+  position:fixed;    /* need to do fixed not absolute............................... */
+  width:2vw;
+  height:3vh;
+  background-color:rgba(44, 198, 23, 0.7);
+  border-radius:50%;
+  z-index:0;
+}
+
+
+  img {
+    width: 100vw;
+    height: 100vh;
+  position:fixed;
+  z-index:-3;
+  object-fit: cover;
+  }
+.bg{
+  width:100vw;
+  height:100vh;
+  position:absolute;
+}
+.bg h1::selection,.bg p::selection{
+background-color:rgb(163, 213, 169);
+color:rgb(135, 156, 116);
+}
+.bg h1{
+ text-align:center;
+ margin-top:30vh;
+ font-size:7vw;
+ text-shadow: 2px 2px 1px rgb(163, 96, 96);
+ color:white;
+}
+ .fix{
+  width:100vw;
+  height:100vh;
+  position:fixed;
+  z-index:-2;
+  background-color:rgba(7, 6, 6, 0.3);
+}
+.bg p{
+  text-align:center;
+  font-size:2vw;
+  font-weight:500;
+  text-shadow: 1px 1px 1px rgb(116, 77, 77);
+  color:white;
+}
+.bg .para{
+  font-size:1vw;
+  width:50vw;
+  display:block;
+  margin:auto;
+  padding:10px;
+}
+
+.page2,.page3,.page4,.page5{
+  width:100vw;
+  height:100vh;
+}
+
+.scrolling-text{
+  overflow:hidden;
+}
+.scrolling-text .text{
+  width:305vw;
+  display:flex;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:17vh;
+  font-weight:999;
+  color:transparent;
+  white-space: nowrap;
+  transform:translateX(100%);
+   -webkit-text-stroke: 2px rgb(22, 170, 22);  /*to give outline to text */
+   position:relative;
+   bottom:6vh;
+   z-index:12;
+}
+
+.scrolling-text p:hover {    /*why hover not working without giving z-index: because element may be getting covered by another element(specicially one which we are carrying with arrow(.cursor) so we need to apply z-index to make that hovered element above any element covering it and hover will work effectively..*/
+  color:rgb(62, 139, 55);
+  transition: color 1s;
+}
+.mid img{
+  width:250px;
+  height:150px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin-left:5vw;
+  margin-right: 5vw;
+}
+.about{
+  width:35vw;
+  color:white;
+
+}
+.about .space{
+font-size:2vw;
+font-weight:999;
+font-family: Arial, Helvetica, sans-serif;
+margin-bottom:2%;
+margin-top:2%;
+}
+.mid{
+  margin-top:3vw;
+display:flex;
+justify-content: space-between;
+text-align:center;
+}
+.card{
+  margin-top:9vh;
+  display:flex;
+  justify-content: center;
+  gap:6vw;
+  overflow:hidden;
+}
+
+.card .first{
+  background-image: url('https://t3.ftcdn.net/jpg/05/64/65/64/360_F_564656434_iUmTypNTSbF2vtAWJYehdu68oEgsIYNA.jpg');
+}
+.card .second{
+  background-image: url('https://play-lh.googleusercontent.com/Dv-HR8S7_k1b43I7qbUMfcZlNNDKr5dLQMtbaPu6iijGf2d10PfBaOyakAX3qZNQFw');
+}
+.card .third{
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcFs7jWIpylRYKtJn_sUc6gewgH-_N1XYvUiG6PqES2Wzl1yoLkT6igxvrEFJPjPT6VSI&usqp=CAU');
+}
+.card .first,.card .second,.card .third{
+  width:300px;
+  height:280px;
+  border-radius:20px;
+  position:relative;
+ z-index:0;
+}
+.card .first div,.card .second div,.card .third div{
+  width:100%;
+  height:100%;
+  border-radius:20px;
+  background-color:greenyellow;
+  text-align:center;
+}
+.card .first div .top,.card .second div .top,.card .third div .top{
+font-size:1.5vw;
+font-weight:555;
+}
+.card .first div .mid,.card .second div .mid,.card .third div .mid{
+font-size:1vw;
+font-weight:555;
+}
+.card .first div,.card .second div,.card .third div{
+  transform:translateY(-100%);
+}
+
+.card .first:hover div{    /* this helps in applying properties on div(inside .card .first) when  .card .first is hovered */
+  transform:translateY(0%);
+  transition:transform 1s;
+}
+.card .second:hover div{
+  transform:translateY(0%);
+  transition:transform 1s;
+}
+.card .third:hover div{
+  transform:translateY(0%);
+  transition:transform 1s;
+}
+
+.card .first:hover, .card .second:hover,.card .third:hover{
+  transform:rotate3d(-1,1,0,30deg);
+  transition:transform 0.5s;
+}
+
+.page3 .left,.page3 .right{
+  width:540px;
+  height:250px;
+  overflow:hidden;
+}
+.banner{
+  margin-top:5vw;
+  display:flex;
+  background-color: rgba(129, 164, 76, 0.7);
+}
+.page3 .colour{
+  text-transform: uppercase;
+  background-color: rgb(168, 224, 70);
+  width:490px;
+  height:250px;
+  display:flex;
+  text-align: center;
+  align-items: center;
+  font-weight:999;
+  font-size:1.3vw;
+  box-shadow:  0px 0px 10px 10px #a9e449;
+  border-radius:20px;
+}
+
+.scrolling-image{
+margin-top:20vh;
+margin-left:10vw;
+}
+.scrolling-image img{
+  width:600px;
+  height:400px;
+  border-radius:30px;
+}
+
+.scrolling-image .img2 img,.scrolling-image .img1 img{
+position:absolute;
+z-index:0;
+}
+.scrolling-image .img3 img{
+position:relative;
+z-index:1;
+}
+.move{
+  object-fit: cover;
+  margin-left:25vw;
+}
+.move img{
+  position:relative;
+width:30px;
+height:30px;
+border-radius:15px;
+z-index:11;
+cursor:pointer;
+}
+.move img:hover{
+  transform:scale(1.2);
+}
+
+.right-side{
+  color:white;
+}
+.flexx{
+  display:flex;
+}
+.right-side{
+  margin-top:30vh;
+  margin-left:5vw;
+}
+
+.right-side p{
+  width:70%;
+  margin-top:3vh;
+}
+.right-side button{
+border-radius:20px;
+border:5px solid rgb(60, 115, 60);
+color:white;
+background-color: transparent;
+padding:10px;
+width:10vw;
+margin-top:5vh;
+margin-left:2vw;
+position:relative;
+z-index:10;
+text-transform:uppercase;
+}
+.right-side button:hover{
+transform:scale(1.1);
+cursor:pointer;
+}
+.comma img{
+  width:50px;
+  height:50px;
+  border-radius:25px;
+  margin-top:40vh;
+  margin-left:20vw;
+}
+.content-comma{
+  color:white;
+text-transform: uppercase;
+width:50%;
+font-weight:999;
+font-size:1.5vw;
+margin-left:25vw;
+text-align: center;
+margin-top:6vw;
+}
+.comma2 img{
+width:70px;
+height:70px;
+border-radius:50px;
+margin-left:75vw;
+margin-top:5vw;
+}
+
+
+.page5 .cool{
+  color:rgb(136, 102, 102);
+  font-size:5vw;
+  font-weight:999;
+  text-align: center;
+  font-family:fantasy;
+  /* margin-top:15vh; */
+}
+.last-image{
+  display:flex;
+ justify-content:center;
+ gap:5vw;
+ 
+}
+.last-image .firr{
+  width:400px;
+  height:200px;
+  background-image: url('https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Z29sZnxlbnwwfHwwfHx8MA%3D%3D');
+  object-fit: cover;
+  background-size: cover;
+  border-radius :30px;
+  overflow: hidden;
+  position:relative;
+  z-index:10;
+  bottom:25px;
+}
+.last-image .secc{
+  width:400px;
+  height:200px;
+  background-image: url('https://media.istockphoto.com/id/465611306/photo/golf-ball-near-hole.jpg?s=612x612&w=0&k=20&c=SKgNRx8L4xNee2My7Wh-VcNyc21a3iFk0PDglV0WxMk=');
+  object-fit: cover;
+  background-size: cover;
+  border-radius :30px;
+  overflow: hidden;
+  position:relative;
+  z-index:10;
+  bottom:25px;
+}
+.last-image .thirr{
+  width:400px;
+  height:200px;
+  background-image: url('https://golfweek.usatoday.com/wp-content/uploads/sites/87/2023/01/1-Wade-Hampton-Club-211.jpg?w=1000&h=600&crop=1');
+  object-fit: cover;
+  background-size: cover;
+  border-radius :30px;
+  overflow: hidden;
+  position:relative;
+  z-index:10;
+  bottom:25px;
+}
+.last-image .f,.last-image .s,.last-image .t{
+width:100%;
+height:100%;
+background-color: #a9e449;
+font-weight:999;
+font-size:2.5vw;
+border-radius:30px;
+}
+.last-image .firr:hover .f,.last-image .secc:hover .s,.last-image .thirr:hover .t{
+  transform:translateY(-100%);
+  transition:transform 1s;
+}
+
+.last-image .f p,.last-image .s p,.last-image .t p{
+  width:300px;
+  position:relative;
+  top:70px;
+  left:70px;
+}
+.pic img{
+  width:50x;
+  height:50px;
+  margin-top:10vh;
+}
+.total{
+  margin-top:30vh;
+  height:40vh;
+  background-color: rgb(125, 172, 54);
+  display:flex;
+  color:white;
+ justify-content:space-around;
+}
+.pic i{
+  top:5vh;
+  position:relative;
+  right:30px;
+  margin:5px;
+}
+.pic-right,.pic-right-right{
+  color:black;
+  font-weight: 111;
+  font-size: 3vh;
+  margin-top:13vh;
+  font-family:fantasy;
+}
+.pic-right-right-right{
+  color:black;
+  font-weight: 111;
+  font-size: 2.5vh;
+  margin-top:13vh;
+
+}
+
+
+</style>
+
+<body>
+  <div class="main">
+    <div class="cursor"></div>
+    <div class="cursor-blur"></div>
+
+    <div class="page1">
+      <nav class="navbar">
+        <img src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/logo-white.svg">
+        <p><strong>TOPTRACER RANGE</strong></p>
+        <p><strong>GOLF LESSONS</strong></p>
+        <p><strong>ADVENTURE GOLF</strong></p>
+        <p><strong>CAFE</strong></p>
+        <p><strong>EVENTS</strong></p>
+      </nav>
+     
+      
+        <image  src="https://cdn.pixabay.com/photo/2015/05/28/10/12/golf-787826_1280.jpg" ></image>
+        <p class="fix"></p>
+        <div class="bg">
+            <h1>EAT.DRINK.PLAY</h1>
+            <p >Welcome to sidecup family golf!</p>
+            <p class="para">sidecup golf is a multipurpose platform where you can practice upon your skills and can enhance you ability to handle pressure situation and will be able to have tremendous victory your opponent</p>
+          </div>
+    </div>
+   
+        
+        <div class="page2">
+        <div class="scrolling-text">
+          <div class="text">
+            <p>TOPTRACER RANGE </p>
+            <p>GOLF LESSONS</p> 
+            <p>ADVENTURE GOLF </p>
+            <p>CAFE </p>
+            <p>EVENTS........</p>
+          </div>
+        </div>
+<div class="mid">
+  <img src="https://thumbs.dreamstime.com/b/golf-ball-near-hole-26006969.jpg">
+   <div class="about">    <!--do not add p tag inside p tag -->
+    <p class="space">ABOUT US</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quis magnam corporis cupiditate illo corrupti praesentium delectus aliquid aspernatur. Impedit odit dolore amet, iure exercitationem natus unde at ut explicabo?</p>
+  </div>
+  <img src="data:image/jpeg;base64,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">
+</div>
+
+<div class="card">
+  <div class="first">
+    <div>
+<p class="top">TOPTRACER RANGE</p>
+<P class="mid">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum, maxime eaque. Quidem maxime, similique eius veritatis cupiditate doloremque iusto libero esse quaerat ut corporis. Culpa magni quia nostrum esse magnam.</P>
+    </div>
+  </div>
+  <div class="second">
+    <div>
+      <p class="top">GOLF LESSONS</p>
+<P class="mid">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum, maxime eaque. Quidem maxime, similique eius veritatis cupiditate doloremque iusto libero esse quaerat ut corporis. Culpa magni quia nostrum esse magnam.</P>
+    </div>
+  </div>
+  <div class="third"><div>
+    <p class="top">ENJOY GOLF</p>
+<P class="mid">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum, maxime eaque. Quidem maxime, similique eius veritatis cupiditate doloremque iusto libero esse quaerat ut corporis. Culpa magni quia nostrum esse magnam.</P>
+  </div></div>
+</div>
+</div>
+
+
+<div class="page3">
+
+  <div class="banner">
+    <div class="left"> 
+      <img src="https://st2.depositphotos.com/1001069/5535/v/950/depositphotos_55359343-stock-illustration-abstract-dotted-green-background.jpg" alt="">
+    </div>
+      <div class="colour">sign up for sidecup views and straightup bonus directly to your inbox</div>
+      <div class="right">
+    <img src="https://st2.depositphotos.com/1001069/5535/v/950/depositphotos_55359343-stock-illustration-abstract-dotted-green-background.jpg" alt="">
+    </div>
+  </div>
+  
+  <div class="flexx">
+    <div class="left-side">
+      <div class="scrolling-image">
+        <div class="img1">
+    <img src="https://www.posist.com/restaurant-times/wp-content/uploads/2023/07/How-To-Start-A-Coffee-Shop-Business-A-Complete-Guide.jpg">
+        </div>
+        <div class="img2">
+    <img src="https://b.zmtcdn.com/data/collections/54a38c33ce8c62c7754e3f0b2fa6eb60_1696100571.png">
+        </div>
+        <div class="img3">
+    <img src="https://cdn.homedit.com/wp-content/uploads/2019/05/A-Modern-Colombian-Coffee-Shop-2-1024x667.jpg">
+        </div>
+      </div>
+    <div class="move">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ89YNUCfjhwZHfF8aaMfzqN2t4e95_nK2dzY_l1OCVsA&s" class="bull0">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ89YNUCfjhwZHfF8aaMfzqN2t4e95_nK2dzY_l1OCVsA&s" class="bull1">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ89YNUCfjhwZHfF8aaMfzqN2t4e95_nK2dzY_l1OCVsA&s" class="bull2">
+    </div>
+    </div>
+    
+    <div class="right-side">
+      <h1>FOOD AND DRINK</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt nobis qui ad deserunt facilis ea omnis sequi molestias eligendi quod saepe quidem nam, praesentium hic est perferendis tempore! Molestias, nostrum.</p>
+      <button>cofee shop</button>
+    </div>
+  
+  </div>
+  
+</div>
+
+
+
+
+
+
+<div class="page4">
+
+<div class="comma">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWNk1yWVEppNDUAjnQDXpRr4EKDBjgwkgJ7w&usqp=CAU">
+</div>
+
+<div class="content-comma">
+ <p>GREAT FACILITIES: Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum commodi cum accusamus, iure ducimus error doloribus facilis quisquam illo explicabo odio distinctio veniam eos, hic architecto dicta saepe delectus ex!</p> 
+</div>
+<div class="comma2">
+  <img src="https://www.shutterstock.com/image-vector/quotation-mark-symbol-3d-extruded-260nw-2341762727.jpg" alt="">
+</div>
+
+
+
+  </div>
+  
+  <div class="page5">
+<p class="cool">WHAT ARE YOU WAITING FOR?</p>
+
+<div class="last-image">
+  <div class="firr">
+    <div class="f">
+      <p>TOPTRACER</p>
+    </div>
+  </div>
+  <div class="secc">
+    <div class="s">
+      <p>GOLF</p>
+    </div>
+  </div>
+  <div class="thirr">
+    <div class="t">
+      <p>LESSONS</p>
+    </div>
+  </div>
+</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="total">
+  <div class="pic">
+    <p>
+      <img src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/logo-white.svg">
+    </p>
+    <i class="fa fa-facebook" style="font-size:48px;color:red"></i>
+    <i class="fa fa-twitter" style="font-size:48px;color:red"></i>
+    <i class="fa fa-linkedin" style="font-size:48px;color:red"></i>
+  </div>
+  
+  <div class="pic-right">
+    <p>TOPTRACER-RANGE</p>
+    <p>GOLF LESSONS</p>
+    <p>ADVENTURE GOLF</p>
+  </div>
+  
+  <div class="pic-right-right">
+    <p>COFFEE</p>
+    <p>LEAGUE MATCHES</p>
+    <p>CONTACT US</p>
+  </div>
+  
+  <div class="pic-right-right-right">
+    <p>a-20 sidecup bypass</p>
+    <p>kent</p>
+    <p>florida pin:124001</p>
+    <p>tel:80898080</p>
+    <p>get directions</p>
+  </div>
+  
+  
+  
+</div>
+
+
+  </div>
+
+  
+      
+</div>
+    
+  
+    
+    
+      <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script>
+  gsap.to(".navbar",{
+    backgroundColor:"#000",
+  height:"11vh",
+  color:"white",
+  transform: "translateY(-10%)",
+scrollTrigger:{
+  trigger:".navbar",
+  scroller:"body",
+  start:"top -10vh",
+  end:"top -15vh",
+  scrub:1,
+}
+  })
+
+  gsap.to(".main",{
+  backgroundColor:"#000",
+  scrollTrigger:{
+  trigger:".main",
+  scroller:"body",
+  start:"top -25%",
+  end:"top -70%",
+  scrub:5,
+}
+  })
+
+  let m=document.querySelector(".cursor");
+  let n=document.querySelector(".cursor-blur");
+  document.addEventListener("mousemove",()=>{
+    let get=m.getBoundingClientRect();
+    let get1=n.getBoundingClientRect();
+    gsap.to(".cursor",{
+      display:"block",
+      left:event.clientX-get.width/2+"px",
+      top:event.clientY-get.height/2+"px",
+    
+    })
+    gsap.to(".cursor-blur",{
+      display:"block",
+      left:event.clientX-get1.width/2+"px",   //event is used due to queryselector else details would be used
+      top:event.clientY-get1.height/2+"px",
+      filter:"blur(100px)",
+    
+    })
+  })
+
+gsap.to(".scrolling-text .text",{
+ transform:"translateX(-100%)",
+  duration:45,
+  ease:"linear",
+  delay:-15,
+repeat:-1,
+})
+
+gsap.to(".comma",{
+  transform:"translate(10vh,10vh)",
+  duration:0.1,
+  scrollTrigger:{
+trigger:".comma",
+scroller:"body",
+start:"top 20%",
+end:"top -20%",
+// markers:true,
+scrub:3,
+  }
+})
+
+gsap.to(".comma2",{
+  transform:"translate(-10vh,-10vh)",
+  duration:0.1,
+  scrollTrigger:{
+trigger:".comma",
+scroller:"body",
+start:"top 20%",
+end:"top -20%",
+// markers:true,
+scrub:3,
+  }
+
+})
+
+gsap.to(".content-comma",{
+  transform:"translateX(3vw)",
+  scrollTrigger:{
+trigger:".content-comma",
+scroller:"body",
+start:"top 70%",
+end:"top -20%",
+// markers:true,
+scrub:3,
+  }
+
+})
+
+
+
+let s=document.querySelector(".scrolling-image .img1 img");
+let t=document.querySelector(".scrolling-image .img2 img");
+let u=document.querySelector(".scrolling-image .img3 img");
+document.querySelector(".bull0").addEventListener("click",()=>{
+s.style.zIndex= 1;
+t.style.zIndex=0;
+u.style.zIndex=0;
+})
+document.querySelector(".bull1").addEventListener("click",()=>{
+s.style.zIndex= 0;
+t.style.zIndex=1;
+u.style.zIndex=0;
+})
+document.querySelector(".bull2").addEventListener("click",()=>{
+s.style.zIndex= 0;
+t.style.zIndex=0;
+u.style.zIndex=1;
+})
+
+
+
+
+</script>
+
+</body>
+
+</html>-
+
+<!-- object-fit:cover===> this is directly applied to img or video element and is used to fit the image in the size of img element that we have mentioned nad is not useful for background-image.. --->
+<!-- background-size:cover====> this is applied to element with back-ground image and is used to fit that background-image appropriately inside that element.. --> 

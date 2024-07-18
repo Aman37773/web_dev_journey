@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <style>
+      * {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+      }
+
+      .card {
+         background: linear-gradient(135deg, #00feba, #5b548a);
+         color: #fff;
+         width: 25vw;
+         margin: auto;
+         margin-top: 7vh;
+         border-radius: 20px;
+         height: 20vh;
+      }
+
+      input {
+         width: 65%;
+         padding: 15px;
+         border-radius: 60px;
+         margin-left: 10%;
+
+      }
+
+      button {
+         width: 60px;
+         margin-top: 25px;
+         height: 50px;
+         margin-left: 3%;
+         border-radius: 50%;
+         cursor: pointer;
+         padding: 10px;
+      }
+
+      button img {
+         width: 15px;
+         height: 15px;
+      }
+
+      .weather {
+         text-align: center;
+      }
+
+      .weather img {
+         height: 30vh;
+      }
+
+      .bottom {
+         margin-top: 12vh;
+         display: flex;
+         justify-content: space-around;
+      }
+   </style>
+</head>
+
+<body>
+   <div class="card">
+      <input type="text" placeholder="enter city name">
+      <button><img src="./search.png"></button>
+
+      <div class="error">INVALID CITY NAME</div>
+      <div class="whole">
+         <div class="weather">
+            <img src="./rain.png" class="weather-image" alt="not loaded">
+            <h1 class="temp">22°c</h1>
+            <h1 class="city">rohtak</h1>
+         </div>
+   
+         <div class="bottom">
+            <div class="humidity">
+               <img src="./humidity.png" class="humidity-image" alt="not loaded">
+               <p  class="humid">50%</p>
+               <p>humidity</p>
+            </div>
+            <div class="wind">
+               <img src="./wind.png" class="wind-image" alt="not loaded">
+               <p class="wind-speed">30km/h</p>
+               <p>wind speed</p>
+            </div>
+         </div>
+      </div>
+     
+
+
+
+   </div>
+
+
+
+
+
+   <script>
+      let get1=document.querySelector(".card button");
+      document.querySelector(".error").style.display="none";
+      document.querySelector(".whole").style.display="none";
+let get2=document.querySelector(".card input");
+let get3=document.querySelector(".weather .city");
+      let APIkey="49ddcd1dcc0394bc290eaa4d9c8b7630";
+      let APIurl="https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+      
+     
+    
+      // https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}    format of whole api
+async function weather(city){
+   document.querySelector(".error").style.display="none";
+      document.querySelector(".whole").style.display="none";
+   let a=await fetch(APIurl+`${city}`+`&appid=${APIkey}`);   //fetch is used to get data from server
+a=await a.json();   //to convert a into json format(well readable)
+
+if(a.cod==404){   //cod hepls in checking status of error
+   document.querySelector(".card").style.height="25vh";
+   document.querySelector(".error").style.display="block";
+   document.querySelector(".whole").style.color="orange";
+}
+
+else{
+   document.querySelector(".whole").style.display="block";
+   document.querySelector(".card").style.height="85vh";
+   get3.textContent=get2.value;
+   let temp=document.querySelector(".weather .temp");
+temp.innerText=a.main.temp+`°c`;
+let humid=document.querySelector(".bottom .humid");
+humid.innerText=a.main.humidity+`%`;
+let wind=document.querySelector(".wind .wind-speed");
+wind.innerText=a.wind.speed+`km/hr`;
+
+if(a.weather[0].main=="Clear"){
+   document.querySelector(".weather img").setAttribute("src", "./clear.png");
+}
+else if(a.weather[0].main=="Smoke"){
+   document.querySelector(".weather img").setAttribute("src", "https://cdn-icons-png.flaticon.com/512/4413/4413332.png");
+}
+else if(a.weather[0].main=="Clouds"){
+   document.querySelector(".weather img").setAttribute("src", "./clouds.png");
+}
+else if(a.weather[0].main=="Drizzle"){
+   document.querySelector(".weather img").setAttribute("src", "./drizzle.png");
+}
+else if(a.weather[0].main=="Mist"){
+   document.querySelector(".weather img").setAttribute("src", "./mist.png");
+}
+else if(a.weather[0].main=="Rain"){
+   document.querySelector(".weather img").setAttribute("src", "./rain.png");
+}
+else if(a.weather[0].main=="Snow"){
+   document.querySelector(".weather img").setAttribute("src", "./snow.png");
+}
+}
+
+}
+
+
+
+get1.addEventListener("click",()=>{
+weather(get2.value);
+})
+
+
+
+
+
+
+      </script>
+
+      </body>
+</html>

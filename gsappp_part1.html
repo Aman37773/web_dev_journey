@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+          <style>
+                    h1{
+                              color:red;
+                    }
+                    h2{
+                              color:blue;
+                    }
+                    h3{
+                              color:green;
+                    }
+          </style>
+</head>
+<body>
+          <h1>hello my friend</h1>
+          <h2>hello world</h2>
+          <h3>hello</h3>
+
+          <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js"></script>
+          <script>
+                    //timeline is used to control different elements separately but run them synchronously(line-wise)
+                    let p=gsap.timeline();
+                    p.to("h1",{
+                              x:600 ,  //basically means transform: "translateX(600px)" ,
+                              color:"orange",
+                              duration:2,
+                              yoyo:true, // this is used to revert changes smoothly
+
+                    })
+                    p.to("h2",{
+                              x:600 ,  //basically means transform: "translateX(300px)" ,
+                              color:"orange",
+                              duration:1,
+                              yoyo:true, // this is used to revert changes smoothly
+
+                    })
+                    p.to("h3",{
+                              x:600 ,  //basically means transform: "translateX(300px)" ,
+                              color:"orange",
+                              duration:3,
+                              yoyo:true, // this is used to revert changes smoothly
+
+                    })
+          </script>
+</body>
+</html>

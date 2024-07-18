@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>navigation menu</title>
+    <style>
+
+        .ok li{
+            
+            float:left;  
+             margin:5px;
+             padding-left:10px;
+            list-style:none; 
+            text-decoration:none;        
+        } 
+        .ok li a{
+            text-decoration:none;
+            color:white;
+        }
+
+        .ok ul{
+            border:2px solid blue;
+            background-color:black;
+            overflow:auto;  /*  float sometimes overflows the content so this is used */
+            border-radius:30px;
+        }
+
+        
+
+#search{
+    
+margin-left:1000px;
+border:2px solid yellow;
+border-radius:30px;
+
+}
+
+li a:hover{
+    color:red;
+}
+
+       
+    </style>
+</head>
+<body>
+        <nav class="ok">
+            <ul class="uu">
+                <li><a href="https://google.com">home</a></li>
+                <li><a href="https://facebook.com">about</a></li>
+                <li><a href="https://instagram.com">content</a></li>    
+                    <input type="text" name="search" id="search" placeholder="search this website">
+                
+              
+            </ul>
+           
+            
+        </nav>
+</body>
+</html>

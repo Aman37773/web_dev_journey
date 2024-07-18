@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transform</title>
+    <style>
+        p {
+            width: 100px;
+            height: 200px;
+            border: 2px solid red;
+
+        }
+
+        span {
+            border: 2px solid red;
+        }
+
+        .hell:hover {
+            /* all transform properties works relatively(without affecting position of anyone else even by overlapping them) */
+
+            /* only one transform property for a box works at a time and one which is written at last works */
+
+            /* transform properties onlyyy woks on block elements */
+
+            /* transform:scale(1.3); this will increase size of box by given times */
+            /* transform:rotate(90deg); this will rotate the box by 90 degrees*/
+            /* transform:skew(40deg); this will make the box tircha(hindi word)(rotate left and right edges but will keep top and bottom edges horizontal) by 40 degrees */
+            /* transform:translatey(30px); this will move box by 30px along y-axis from its original position*/
+            /* transform:translatex(30px); this will move box 30px along x-axis from its original position*/
+            /* transform:translate(30px,30px); this will move box diagonally by 42.42px(root(900+900))*/
+
+        }
+    </style>
+</head>
+
+<body>
+    <p class="hell">hello</p>
+    <p class="helll">world</p>
+</body>
+
+</html>

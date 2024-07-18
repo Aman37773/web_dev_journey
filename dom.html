@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="whole">
+    <p id="one ">namaste</p>
+    <p id="two">namaste</p>
+    <p id="three">namaste</p>
+
+  </div>
+
+
+
+  <ul class="mango">
+    <li class="tech">first</li>
+    <li class="tech">second</li>
+    <li class="tech">third</li>
+  </ul>
+
+
+  <h1 id="lemon"></h1>
+  <button class="btn" onclick="hush()">click</button>
+  <script>
+
+                        //part1
+
+    //          let m = document.getElementById("whole")
+    //           console.log(m)   //this will print everything inside that element including any element inside that element too and that main element too
+    //console.log(m.innerText)//this will only print content inside element
+    // console.log(m.innerHTML)  //this will print everything inside that element including any element inside that element too
+
+    //using class
+    let z = document.getElementsByClassName("mango")  //after mentioning mango here then if we target [0] then out of all elements with class as mango it will target the one which is coming first but there is only one class with name as mango so it will target that itself
+    //console.log(z); //this will only give info about number of elements inside that class and here .innerText and .innerHtml will not work
+    // console.log(z[0]);   //this will print everything inside that class including elements and main element too
+    // console.log(z[0].innerHTML);  //this will print everything inside that class including elements too
+    // console.log(z[0].innerText);  //this will print text inside that class also text of elements inside main element
+
+    let p = document.getElementsByClassName("tech")  //after mentioning tech here then if we target [0] then out of all elements with class as tech it will target the one which is coming first
+    console.log(p[0].innerText);
+
+    
+ //to manipulate
+ p[0].innerText="hello";
+
+
+
+ //using tag
+ let g=document.getElementsByTagName("li")
+ g[1].innerText="done";
+ g[1].style.color="red"
+
+
+
+//query selector
+//by class
+// let h=document.querySelectorAll(".tech")     //querySelector will only select first element so need to mention All to use all elements as an array
+// h[0].innerText="kl"
+
+//by id
+// let m=document.querySelector("#whole")
+// m.innerText="kl"
+
+//by tag
+// let h=document.querySelectorAll("li")
+// h[0].innerText="kl"
+
+//to change classname using query
+// let h=document.querySelectorAll(".tech")
+// h[1].className="techy"
+// h[1].classList="tech techy"   //to send multiple class name
+// h[1].setAttribute("id","dome")   //to set any attribute
+
+
+
+
+               //part2
+
+ //create element
+ let n=document.createElement("h1")
+ n.className="op"
+ n.textContent="hello world"     //textContent=innerText
+ n.style.color="orange"
+  console.log(n.innerText)  //this as usual prints in console 
+ document.body.appendChild(n)  //this helps in printing content at web-page itself
+
+ //delete element
+let j=document.querySelector("ul")
+let s=document.querySelectorAll("li")
+for(list of s){
+  j.removeChild(list)
+}
+
+
+
+               //part3
+
+// let k=document.getElementsByClassName("lemon")
+// //syntax--> document.addEventListener("operation",responce)  operation=mouseenter, dblclick, click etc
+//  document.addEventListener("click",hello) //here we did not mention where to click so clicking anywhere on the webpage will call the function "hello" but if we would have wrote k.addEventListener("click",hello) then on clicking content of .lemon(holded by variable k), it would have brought the changes
+//  function hello(){
+// document.getElementById("lemon").innerText= "namaste my friends"
+//  }
+
+function hush(){
+  document.getElementsByClassName("btn")[0].innerText="namaste";
+  document.getElementsByClassName("btn")[0].style.color="red";
+  document.getElementsByClassName("btn")[0].style.padding="10px";
+}
+
+
+
+
+//imp         document.body.style.backgroundcolor="orange"   //this will bring effects to body
+
+  </script>
+</body>
+
+</html>

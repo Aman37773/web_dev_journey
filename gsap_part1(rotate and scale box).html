@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+          <style>
+                   
+                    *{
+                              margin:0;
+                              padding:0;
+                              box-sizing:border-box;
+                    }
+                 
+          .page1{
+                    width:100vw;
+                    height:100vh;
+                    background-color:cadetblue
+                    
+          }
+          .box{
+                    width:100px;
+                    height:100px;
+                    background-color: orange;
+                    position:absolute;
+                   top:200px;
+                   
+          }
+          </style>
+          
+</head>
+<body>
+          <div class="page1">
+                    <div class="box"></div>
+          </div>
+
+
+
+          <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js"></script>
+          <script>
+                    gsap.to(".box",{
+                              transform:"translateX(300%)",
+                              duration:4,
+                              delay:0.5,
+                              backgroundColor:'blue',
+                              rotate:360,
+                              scale:2,
+                    })    //at a time either gsap.to() works or gsap.from() and gsap.from() works animation in opposite direction
+                    // gsap.from(".box",{
+                    //           transform:"translateX(300%)",
+                    //           duration:4,
+                    //           delay:0.5,
+                    //           backgroundColor:'blue',
+                    //           rotate:360,
+                    //           scale:2,    
+                    // })
+          </script>
+</body>
+</html>

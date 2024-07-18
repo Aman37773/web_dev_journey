@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>overflow and z index</title>
+          <style>
+                    p{
+                              width:100px;
+                              height:100px;
+                              border: 2px solid red;
+                              background-color:white;
+                              /* overflow: hidden;  this will hide overflowed content*/
+                              /* overflow: scroll;  this will create scrollbar for  overflowed content*/
+                              /* overflow: auto;  this will create scrollbar for  overflowed content but will hide thie scroll bar in some of the browsers*/        
+                              overflow:auto;  
+                              position:absolute;
+                              z-index:-1;
+                    }
+                    div{
+                              width:100px;
+                              height:200px;
+                             background-color:red;
+                             /* position:absolute; */
+                             /* z-index:-1; */
+                    }
+          </style>
+</head>
+<body>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis nesciunt officia, minima fugit ducimus, similique assumenda tempore, qui nemo impedit ab eum! Inventore earum ex nostrum ab error? Nam laboriosam vel animi at modi, omnis voluptas doloribus optio adipisci sequi.</p>
+          <div></div>
+</body>
+</html>

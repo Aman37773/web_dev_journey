@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position,absolute,relative,fixed,sticky</title>
+    <style>
+        #box,#boxx,#boxxx,#boxxxx {
+
+            width: 100px;
+            height: 100px;
+            border: 2px solid red;
+            /* margin: 10px; */
+            display: inline-block;
+        }
+
+        #container{
+            background-color:yellow;
+            border: 2px solid red;
+            position:static;
+            height:1000px;
+          
+        }
+
+        #boxx{
+             position:sticky  ;  /*  fixed->cover absolute   top.. absolute to body */
+             top:300px;      /* sticky->cover relative  top.. like margin */
+           
+        }
+
+
+#modify{
+          height:2000px;
+}
+          
+        
+
+
+
+
+
+
+        /* #box {
+            float: left;
+            width: 10%;
+
+        }
+
+        #boxx {
+            float: left;
+            width: 10%;
+            position: relative;          
+             top: 100px;
+          only left right bottom top works for position  
+        }
+
+        #boxxx {
+            float: left;
+            width: 10%;
+        }
+
+        #boxxxx {
+            float: left;
+            width: 10%;
+        } */
+    </style>
+</head>
+
+<body>
+    <h1>lets do it</h1>
+    <div id="modify">
+          <div id="container">
+                    <div id="box">1</div>
+                    <div id="boxx">2</div>
+                    <div id="boxxx">3</div>
+                    <div id="boxxxx">4</div>
+                </div>
+    </div>
+    
+
+
+
+
+</body>
+
+</html>
